@@ -1,0 +1,41 @@
+.header {
+  background-color: #0B0C10;
+  padding: 30px 0;
+  position: sticky;
+}
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  img {
+    width: 100px;
+    height: auto;
+    margin: 3px;
+  }
+  h2 {
+    margin-left: 5px;
+  }
+}
+.nav {
+  display: flex;
+}
+.menu {
+  display: flex;
+}
+.menuItem {
+  margin-right: 15px;
+  cursor: pointer;
+  a {
+    padding-left: 5px;
+  }
+}
+
+  

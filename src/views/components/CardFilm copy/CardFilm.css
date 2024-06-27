@@ -1,0 +1,37 @@
+
+
+.movie-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  
+}.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ddd;
+}
+
+.movie-info {
+  padding: 20px;
+}
+
+.movie-title {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.movie-description {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+}
