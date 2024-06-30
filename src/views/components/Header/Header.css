@@ -29,6 +29,7 @@
 }
 .menu {
   display: flex;
+  align-items: baseline;
 }
 .menuItem {
   margin-right: 15px;

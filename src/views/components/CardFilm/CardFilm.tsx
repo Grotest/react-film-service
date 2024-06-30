@@ -1,32 +1,46 @@
-import React from 'react';
-import './CardFilm.css'; 
-import likeIcon1 from '../../../assets/like-1.svg'
-import likeIcon2 from '../../../assets/like-2.svg'
+import React, { useState } from 'react';
+import './CardFilm.css';
+import like1 from '../../../assets/like-1.svg';
+import like2 from '../../../assets/like-2.svg';
 
+interface CardFilmProps {
+  name: string;
+  poster: string;
+  rating: number;
+  year: number;
+  isLike: boolean;
+  id: number;
+  onClick: () => void; // Добавлено свойство onClick
+}
 
+const CardFilm: React.FC<CardFilmProps> = ({ name, poster, rating, year, isLike, id, onClick }) => {
+  const [liked, setLiked] = useState(isLike); // Состояние для отслеживания клика на изображение like
+  const [favoritList, setFavoritList] = useState<number[]>([]); // Массив избранных id фильмов
 
-const MainContent: React.FC = (props) => {
+  // Обработчик клика по изображению like
+  const handleLikeClick = () => {
+    setLiked((prevLiked) => !prevLiked); // Переключаем состояние liked
 
-  const movie: Movie = {
-    title: 'Inception',
-    description:
-      'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
-    posterUrl:
-      'https://image.tmdb.org/t/p/w500//9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg', // URL постера фильма
+    // Добавляем или удаляем id фильма из списка избранных
+    if (!liked) {
+      setFavoritList([...favoritList, id]); // Добавляем id фильма в избранное
+    } else {
+      const updatedList = favoritList.filter((filmId) => filmId !== id); // Удаляем id фильма из избранного
+      setFavoritList(updatedList);
+    }
   };
 
   return (
-    <div className='card-film' style={{ border: '10px solid black', borderRadius: '15px!important', margin: "10px", hover: 'translate'}}>
+    <div className="card-film" onClick={onClick}>
       
-      <img src={likeIcon2} alt='like' style={{ display: 'flex', position: "absolute" }} />
-      <h1 style={{display: 'flex', position: "absolute", padding: "0 250px" }}>{props.rating} </h1>
-      <img src={props.poster} alt='poster' style={{width: "100%", height: "300px"}} />
-      <div style={{ padding: '10px' }}>
-        <h1 style={{ fontSize: '1.5rem', marginBottom: '5px' }}>{props.name}</h1>
-        <h2 style={{ fontSize: '1rem', color: '#888' }}>{props.year}</h2>
+      <img className="card-poster" src={poster} alt={name} />
+      <div className="card-details">
+        <h2 className="card-title">{name}</h2>
+        <p className="card-year">Year: {year}</p>
+        <p className="card-rating">Rating: {rating}</p>
       </div>
-     </div>
+    </div>
   );
 };
 
-export default MainContent;
+export default CardFilm;

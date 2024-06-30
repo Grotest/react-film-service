@@ -1,0 +1,37 @@
+/* FilteredMovies.css */
+
+.filters-container {
+  display: contents;
+  max-width: 300px;
+  padding: 10px;
+  margin-left: auto;
+}
+
+.filters-container button {
+  padding: 10px;
+  background-color: #66fcf1;
+  color: #0B0C10;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: 9px;
+  height: 48px;
+}
+
+.filters-container button:hover {
+  background-color: #45A29E;
+}
+
+.select-container {
+  width: 100%;
+}
+
+.select-container .react-select__multi-value__label {
+  font-size: 0.9rem;
+  color: #495057;
+  margin-right: 4px;
+}
+
+.select-container .react-select__multi-value__remove {
+  cursor: pointer;
+}

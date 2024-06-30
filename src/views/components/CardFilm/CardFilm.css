@@ -1,5 +1,17 @@
 
 
+.card-film {
+  /* Ваши текущие стили */
+  cursor: pointer; /* Делает элемент кликабельным */
+  transition: transform 0.2s, box-shadow 0.2s; /* Добавляем плавные переходы */
+}
+
+.card-film:hover {
+  /* Эффект при наведении */
+  transform: translateY(-5px); /* Поднимаем элемент на 5px вверх */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+
+}
 .movie-card {
   position: relative;
  width: 300px;

@@ -1,6 +1,6 @@
 .main-content {
   margin: 0 5%;
-  position: relative; /* Используем relative вместо absolute */
+  position: absolute;
   width: calc(100% - 10%);
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -32,4 +32,3 @@
   margin: auto;
   cursor: pointer;
 }
-
