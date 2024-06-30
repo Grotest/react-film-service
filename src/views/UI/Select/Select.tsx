@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Select from '@mui/material/Select';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -16,9 +16,9 @@ interface SelectProps {
 const SelectComponent: React.FC<SelectProps> = ({ options, defaultValue, onChange }) => {
   const [selectedValue, setSelectedValue] = React.useState(defaultValue);
 
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setSelectedValue(event.target.value as string);
-    onChange(event.target.value as string);
+  const handleChange = (event: SelectChangeEvent<string>) => {
+    setSelectedValue(event.target.value);
+    onChange(event.target.value);
   };
 
   return (
@@ -38,16 +38,16 @@ const SelectComponent: React.FC<SelectProps> = ({ options, defaultValue, onChang
           </div>
         )}
         sx={{
-          '& fieldset': { borderColor: '#66fcf1' }, // Цвет рамки
+          '& fieldset': { borderColor: '#66fcf1' },
           '& .MuiOutlinedInput-root': {
-            '&:hover fieldset': { borderColor: '#45a29e' }, // Цвет рамки при наведении
-            '&.Mui-focused fieldset': { borderColor: '#66fcf1' }, // Цвет рамки при фокусе
+            '&:hover fieldset': { borderColor: '#45a29e' },
+            '&.Mui-focused fieldset': { borderColor: '#66fcf1' },
           },
-          '& .MuiSelect-icon': { color: '#66fcf1' }, // Цвет иконки выпадающего списка
-          '& .MuiListItem-root': { color: '#66fcf1' }, // Цвет текста элементов списка
-          '& .Mui-checked': { color: '#66fcf1' }, // Цвет чекбоксов в элементах списка
-          '& .MuiListItemText-primary': { color: '#66fcf1' }, // Цвет текста в элементах списка
-          '& .selected-values': { color: '#66fcf1' }, // Цвет выбранных значений
+          '& .MuiSelect-icon': { color: '#66fcf1' },
+          '& .MuiListItem-root': { color: '#66fcf1' },
+          '& .Mui-checked': { color: '#66fcf1' },
+          '& .MuiListItemText-primary': { color: '#66fcf1' },
+          '& .selected-values': { color: '#66fcf1' },
         }}
       >
         {options.map((option) => (

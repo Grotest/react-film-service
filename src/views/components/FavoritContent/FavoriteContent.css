@@ -8,22 +8,16 @@
 }
 
 .loading-container {
-  grid-column: 1 / span 5; /* Занимает все колонки */
+  grid-column: 1 / span 5;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white; /* Цвет текста */
-  margin-top: 20px; /* Отступ сверху */
-}
-
-.loading-icon {
-  width: 24px; /* Размер иконки загрузки */
-  height: 24px;
-  margin-right: 10px; /* Отступ между иконкой и текстом */
+  color: white;
+  margin-top: 20px;
 }
 
 .loading-text {
-  font-size: 18px; /* Размер текста */
+  font-size: 18px;
 }
 
 .btn {

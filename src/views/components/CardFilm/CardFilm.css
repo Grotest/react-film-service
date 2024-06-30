@@ -1,66 +1,24 @@
 
 
 .card-film {
-  /* Ваши текущие стили */
-  cursor: pointer; /* Делает элемент кликабельным */
-  transition: transform 0.2s, box-shadow 0.2s; /* Добавляем плавные переходы */
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card-film:hover {
-  /* Эффект при наведении */
-  transform: translateY(-5px); /* Поднимаем элемент на 5px вверх */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавляем тень */
+  transform: translateY(-5px); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
 }
+
 .movie-card {
   position: relative;
- width: 300px;
- height: 300px;
-  background-color: #fff;
-  
-  /* background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  width: 300px; */
-  
-}
-.movie {
- 
-  img {
-   
-    width: 300px;
-    height: 300px;
-    border-radius: 9px;
-  }
-}
-.main-content {
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0; */
+  width: 300px;
+  height: 300px;
+  background-color: #fff; 
 }
 
-.movie-poster {
-  /* width: 100%;
-  height: auto;
-  border-bottom: 1px solid #ddd; */
+.card-details {
+  padding: 10px 10px ;
 }
 
-.movie-info {
-
-  flex-direction: column-reverse;
-  padding: 200px 10px 0;
-}
-
-.movie-title {
- width: 100%;
- padding-bottom: 5px;
-}
-
-.movie-description {
-  color: #666;
-  font-size: 1rem;
-  line-height: 1.5;
-}

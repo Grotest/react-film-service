@@ -3,23 +3,31 @@ import Select from '../../UI/Select/Select';
 import MultiSelect from '../../UI/MultiSelect/MultiSelect';
 import './FilterMovie.css'
 
-interface FilteredMoviesProps {
-  onFiltersChange: (filters: any) => void; // Колбэк для передачи выбранных фильтров в родительский компонент
+export interface Filters {
+  minimum_rating: number | null;
+  maximum_rating: number | null;
+  genres: string | string[];
+  minimum_year: number;
+  maximum_year: number;
 }
 
-const FilteredMovies: React.FC<FilteredMoviesProps> = ({ onFiltersChange }) => {
-  const [selectedGenres, setSelectedGenres] = useState<string[]>([]); // Выбранные жанры
-  const [selectedMinRating, setSelectedMinRating] = useState<number | null>(null); // Минимальный рейтинг
-  const [selectedMaxRating, setSelectedMaxRating] = useState<number | null>(null); // Максимальный рейтинг
-  const [selectedMinYear, setSelectedMinYear] = useState<number>(1990); // Минимальный год выпуска
-  const [selectedMaxYear, setSelectedMaxYear] = useState<number>(new Date().getFullYear()); // Максимальный год выпуска
+export  interface FilteredMoviesProps {
+  onFiltersChange: (filters: Filters) => void;
+}
 
-  // Обработчик изменения выбранных жанров
+
+const FilterMovies: React.FC<FilteredMoviesProps> = ({ onFiltersChange }) => {
+  const [selectedGenres, setSelectedGenres] = useState<string[]>([]);
+  const [selectedMinRating, setSelectedMinRating] = useState<number | null>(null);
+  const [selectedMaxRating, setSelectedMaxRating] = useState<number | null>(null);
+  const [selectedMinYear, setSelectedMinYear] = useState<number>(1990);
+  const [selectedMaxYear, setSelectedMaxYear] = useState<number>(new Date().getFullYear());
+
   const handleGenresChange = (selectedGenres: string | string[]) => {
     setSelectedGenres(Array.isArray(selectedGenres) ? selectedGenres : [selectedGenres]);
   };
+  
 
-  // Обработчики изменения рейтинга
   const handleMinRatingChange = (value: string) => {
     setSelectedMinRating(Number(value));
   };
@@ -28,7 +36,6 @@ const FilteredMovies: React.FC<FilteredMoviesProps> = ({ onFiltersChange }) => {
     setSelectedMaxRating(Number(value));
   };
 
-  // Обработчики изменения года выпуска
   const handleMinYearChange = (value: string) => {
     setSelectedMinYear(Number(value));
   };
@@ -37,16 +44,14 @@ const FilteredMovies: React.FC<FilteredMoviesProps> = ({ onFiltersChange }) => {
     setSelectedMaxYear(Number(value));
   };
 
-  // Применение выбранных фильтров
   const applyFilters = () => {
     const filters = {
       minimum_rating: selectedMinRating,
       maximum_rating: selectedMaxRating,
-      genre: selectedGenres.length > 0 ? selectedGenres.join(',') : '', // Проверяем наличие элементов в массиве
+      genres: selectedGenres.length > 0 ? selectedGenres.join(',') : '',
       minimum_year: selectedMinYear,
       maximum_year: selectedMaxYear,
     };
-    console.log(filters)
     onFiltersChange(filters);
   };
 
@@ -54,17 +59,15 @@ const FilteredMovies: React.FC<FilteredMoviesProps> = ({ onFiltersChange }) => {
     <div className="filters-container">
       
       <Select
-        defaultValue="Man Raiting"
+        defaultValue="Mn Raiting"
         options={[
           { value: '0', name: '0' },
           { value: '2', name: '2' },
           { value: '5', name: '5' },
           { value: '7', name: '7' },
-          // Добавьте другие опции по вашему выбору
         ]}
         onChange={handleMinRatingChange}
       />
-
       <Select
         defaultValue="Max Raiting"
         options={[
@@ -72,7 +75,6 @@ const FilteredMovies: React.FC<FilteredMoviesProps> = ({ onFiltersChange }) => {
           { value: '8', name: '8' },
           { value: '6', name: '6' },
           { value: '4', name: '4' },
-          // Добавьте другие опции по вашему выбору
         ]}
         onChange={handleMaxRatingChange}
       />
@@ -95,19 +97,16 @@ const FilteredMovies: React.FC<FilteredMoviesProps> = ({ onFiltersChange }) => {
           { value: 'action', name: 'Action' },
           { value: 'comedy', name: 'Comedy' },
           { value: 'drama', name: 'Drama' },
-          { value: 'fantasy', name: 'Fantasy' },
-          // Добавьте другие жанры по вашему выбору
+          { value: 'horror', name: 'Horror' },
         ]}
         onChange={handleGenresChange}
-        isMulti
       />
-
       <button onClick={applyFilters}>Apply filters</button>
+      <button onClick={applyFilters}>Clean filters</button>
     </div>
   );
 };
 
-// Функция для генерации опций годов
 const generateYearOptions = (startYear: number, endYear: number) => {
   const years = [];
   for (let year = startYear; year <= endYear; year++) {
@@ -116,4 +115,4 @@ const generateYearOptions = (startYear: number, endYear: number) => {
   return years;
 };
 
-export default FilteredMovies;
+export default FilterMovies;

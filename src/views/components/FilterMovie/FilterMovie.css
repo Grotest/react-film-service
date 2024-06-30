@@ -1,10 +1,6 @@
-/* FilteredMovies.css */
-
 .filters-container {
   display: contents;
   max-width: 300px;
-  padding: 10px;
-  margin-left: auto;
 }
 
 .filters-container button {
@@ -24,14 +20,4 @@
 
 .select-container {
   width: 100%;
-}
-
-.select-container .react-select__multi-value__label {
-  font-size: 0.9rem;
-  color: #495057;
-  margin-right: 4px;
-}
-
-.select-container .react-select__multi-value__remove {
-  cursor: pointer;
 }

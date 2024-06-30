@@ -1,18 +1,16 @@
 .like {
-    position: absolute; /* Позиционирование абсолютное */
-    z-index: 1; /* Поверх других элементов */
-    cursor: pointer; /* Курсор указывает на кликабельность */
-    width: 50px; /* Ширина изображения */
-    transform: scale(1); /* Изначальный размер */
-    transition: transform 0.3s ease-in-out; /* Плавное изменение размера */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Тень для выделения */
-    
-    /* Дополнительные стили для улучшения видимости и интерактивности */
-    border-radius: 50%; /* Круглая форма */
-    padding: 5px; /* Внутренний отступ */
-  }
-  
-  .like:hover {
-    transform: scale(1.2); /* Увеличенный размер при наведении */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Усиленная тень */
-  }
+  position: absolute;
+  z-index: 1;
+  cursor: pointer;
+  width: 50px;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.like:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}

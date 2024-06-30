@@ -12,28 +12,30 @@ const Header: React.FC = () => {
     <header className="header"> 
       <div className="container">
         <div className="logo">
-          <img src={ mainIcon } alt="logo"/>
+          <a href="/">
+            <img src={mainIcon} alt="logo"/>
+          </a>
           <h2 className=''>
-            <span style={{color:" #66FCF1", textTransform: "uppercase"}}>The best movie</span> <br/> on you device
+            <span style={{color:"#66FCF1", textTransform: "uppercase"}}>The best movie</span> <br/> on your device
           </h2>
         </div>
         <SearchInput/>
         <nav className="nav">
           <ul className='menu'>
             <li className='menuItem'>
-              <img src={ iconFilm } alt="logo"/>
+              <img src={iconFilm} alt="logo"/>
               <a href="/films">Films</a>
             </li>
             <li className='menuItem'>
-              <img src={ likeIcon } alt="logo"/>
+              <img src={likeIcon} alt="logo"/>
               <a href="/favorites">Favorites</a>
             </li>
             <li className='menuItem'>
-              <img src={ iconTV } alt="logo"/>
+              <img src={iconTV} alt="logo"/>
               <a href="/tv">TV</a>
             </li>
             <li className='menuItem'>
-              <img src={ profileIcon } alt="logo"/>
+              <img src={profileIcon} alt="logo"/>
               <a href="/profile">Profile</a>
             </li>
           </ul>

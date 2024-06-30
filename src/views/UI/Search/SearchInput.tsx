@@ -10,7 +10,7 @@ const Search = ({ onSearch }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    onSearch(query); // Передаем значение запроса обратному вызову
+    onSearch(query);
   };
 
   return (

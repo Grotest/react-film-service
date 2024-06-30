@@ -1,32 +1,39 @@
 import React from 'react';
-import './ModalWindow.css'; // Подключаем CSS для стилей модального окна
+import './ModalWindow.css';
 
 interface ModalWindowProps {
-  isOpen: boolean; // Состояние модального окна: открыто или закрыто
-  onClose: () => void; // Функция для закрытия модального окна
-  content: any; // Содержимое модального окна (ваш выбранный фильм)
+  isOpen: boolean;
+  onClose: () => void;
+  content:  Content | null;
+}
+
+interface Content {
+  title: number;
+  medium_cover_image: string;
+  rating: string;
+  description_full: number;
+  genres: string | string[];
+  year: number;
 }
 
 const ModalWindow: React.FC<ModalWindowProps> = ({ isOpen, onClose, content }) => {
-  if (!isOpen) {
-    return null; // Не показываем модальное окно, если isOpen равен false
+  if (!isOpen || !content) {
+    return null; 
   }
 
-  // Преобразуем массив жанров в строку через запятую
-  const genresString = content.genres.join(', ');
+  const genresString = Array.isArray(content.genres) ? content.genres.join(', ') : '';
 
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal">
         <div className="modal-content">
           <h1>{content.title}</h1>
-          <img src={content.medium_cover_image} alt={content.title} />
+          <img src={content.medium_cover_image} alt={'poster'} />
           <p>Rating: {content.rating}</p>
           <p>Year: {content.year}</p>
           <p>Genre: {genresString}</p>
           <p>Description: {content.description_full}</p>
-          {/* Добавьте другие данные фильма, которые хотите показать в модальном окне */}
-        </div>
+         </div>
       </div>
     </div>
   );
